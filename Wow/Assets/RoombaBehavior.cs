@@ -29,7 +29,7 @@ public class RoombaBehavior : MonoBehaviour
         }
         if (currentstate == State.Turning)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, targetDeg, 0), Time.deltaTime * turnSpeed);
+            transform.Rotate(0, turnSpeed*Time.deltaTime, 0);
             if (Mathf.Abs(transform.rotation.eulerAngles.y - targetDeg) <= 0.1f)
             {
                 currentstate = State.Moving;
