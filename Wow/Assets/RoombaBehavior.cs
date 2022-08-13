@@ -6,8 +6,7 @@ public class RoombaBehavior : MonoBehaviour
 {
     public float speed;
     Rigidbody rb;
-    public int dir;
-    public Vector3 forw;
+    public float targetDeg;
     public enum State
     {
         Moving,
@@ -27,19 +26,30 @@ public class RoombaBehavior : MonoBehaviour
         {
             transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
         }
+        if (currentstate == State.Turning)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, targetDeg, 0), Time.deltaTime * 2f);
+            if (Mathf.Abs(transform.rotation.eulerAngles.y - targetDeg) <= 0.1f)
+            {
+                currentstate = State.Moving;
+            }
+        }
+        Debug.Log(transform.rotation.eulerAngles.y);
     }
-    public void Turn()
+    public void Turn(float degrees)
     {
-        transform.Rotate(new Vector3(0f, 90f, 0f));
+        currentstate = State.Turning;
+        targetDeg = transform.rotation.eulerAngles.y+degrees;
+        targetDeg = targetDeg % 360;
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (currentstate == State.Moving)
         {
-            Debug.Log("bruh");
             if (other.CompareTag("Wall"))
             {
-                Turn();
+                Turn(90);
             }
         }
     }
