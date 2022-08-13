@@ -7,6 +7,7 @@ public class RoombaBehavior : MonoBehaviour
     public float speed;
     Rigidbody rb;
     public float targetDeg;
+    public float turnSpeed;
     public enum State
     {
         Moving,
@@ -28,13 +29,12 @@ public class RoombaBehavior : MonoBehaviour
         }
         if (currentstate == State.Turning)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, targetDeg, 0), Time.deltaTime * 2f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, targetDeg, 0), Time.deltaTime * turnSpeed);
             if (Mathf.Abs(transform.rotation.eulerAngles.y - targetDeg) <= 0.1f)
             {
                 currentstate = State.Moving;
             }
         }
-        Debug.Log(transform.rotation.eulerAngles.y);
     }
     public void Turn(float degrees)
     {
