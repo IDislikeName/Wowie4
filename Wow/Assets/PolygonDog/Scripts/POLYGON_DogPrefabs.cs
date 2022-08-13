@@ -1,4 +1,4 @@
-﻿/*
+/*
  * POLYGON DOG PREFAB SCRIPT
  * DESCRIPTION: This script demonstrates the range of animations and Prefabs included in 
  * Polygon Dog which can be customized for the users preference. Please attach this to the
@@ -58,7 +58,7 @@ public class POLYGON_DogPrefabs : MonoBehaviour
 	public KeyCode CycleAttachmentsDown = KeyCode.DownArrow; // Move backward
 	private void Start()
 	{	
-		UnwantedDog.SetActive(false);
+		
 		children = this.transform.GetComponentsInChildren<Transform>(true); // Sort out dogs with attachments and those without
 		for (int x = 0; x < children.Length; x++)
 		{
@@ -105,9 +105,9 @@ public class POLYGON_DogPrefabs : MonoBehaviour
 		DogCounter = 24; // Set Dog counter to 0 on startup
 		counter = 0; // Set attachment counter to 0 on startup
 		setInvisible(1);
-		if (CheckValid(DogTransform.GetChild(6).gameObject, AllDogAttach[0][0], 1)) // Check if Dog mesh is valid
+		if (CheckValid(DogTransform.GetChild(24).gameObject, AllDogAttach[0][0], 1)) // Check if Dog mesh is valid
 		{
-			DogTransform.GetChild(6).gameObject.SetActive(true);
+			DogTransform.GetChild(24).gameObject.SetActive(true);
 		}
 		if (CheckValid(DogTransform.GetChild(DogCounter).gameObject, AllDogAttach[0][0], 2)) // Check if Dog attachment is valid
 		{
