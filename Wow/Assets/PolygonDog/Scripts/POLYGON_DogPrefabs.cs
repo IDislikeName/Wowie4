@@ -11,9 +11,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class POLYGON_DogPrefabs : MonoBehaviour
 {
-    public bool DisplayPrefabUI = true;
+    public bool DisplayPrefabUI = false;
 
 	public GameObject WantedDog;
+	public GameObject UnwantedDog;
     public GameObject[] Coyote; //0
 	public GameObject[] Dalmatian; //1
 	public GameObject[] DalmatianCollar; //2
@@ -57,7 +58,7 @@ public class POLYGON_DogPrefabs : MonoBehaviour
 	public KeyCode CycleAttachmentsDown = KeyCode.DownArrow; // Move backward
 	private void Start()
 	{	
-
+		UnwantedDog.SetActive(false);
 		children = this.transform.GetComponentsInChildren<Transform>(true); // Sort out dogs with attachments and those without
 		for (int x = 0; x < children.Length; x++)
 		{
@@ -101,7 +102,7 @@ public class POLYGON_DogPrefabs : MonoBehaviour
 		AllDogAttach.Add(ZombieDoberman); //26
 		AllDogAttach.Add(ZombieGermanShepherd);//27
 		DogTransform = getDogName; // Set Dog Transform to Dogs
-		DogCounter = 23; // Set Dog counter to 0 on startup
+		DogCounter = 24; // Set Dog counter to 0 on startup
 		counter = 0; // Set attachment counter to 0 on startup
 		setInvisible(1);
 		if (CheckValid(DogTransform.GetChild(6).gameObject, AllDogAttach[0][0], 1)) // Check if Dog mesh is valid

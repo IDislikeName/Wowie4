@@ -43,7 +43,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         ZombieDoberman,
         ZombieGermanShepherd
     };
-    public bool DisplayUI = true; // Toggle displaying UI
+    public bool DisplayUI = false; // Toggle displaying UI
     private GameObject DogObject;
     Transform[] children;
     [Header("Action Keys")]
