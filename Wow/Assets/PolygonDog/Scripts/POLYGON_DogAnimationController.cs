@@ -310,7 +310,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
             {
                 transform.Rotate(Vector3.up * Time.deltaTime * -90, Space.Self);
             }
-            if (w_movement < 0.25)
+            if (w_movement < 0.1)
             {
                 dogAnim.SetInteger("TurnAngle_int", -90);
             }
