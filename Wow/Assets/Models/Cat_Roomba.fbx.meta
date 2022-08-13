@@ -3,7 +3,47 @@ guid: bdfe9e4d78fafe842a05e36352982e0e
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RombaBlack
+    second: {fileID: 2100000, guid: 76532d002857615459972f6df92fda10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert65
+    second: {fileID: 2100000, guid: 3d96bf8507dbdfe4d80d9cf79c76eaba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert66
+    second: {fileID: 2100000, guid: dbfb13e14d4fa26499ef2277579173da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert67
+    second: {fileID: 2100000, guid: 9a97b9985b6ed094c8e802a3dc917f7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert68
+    second: {fileID: 2100000, guid: 620f6e3e4d610f546bac29e161fad718, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert69
+    second: {fileID: 2100000, guid: 08c4cf0f853a00a429d0c0de4a710e70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert70
+    second: {fileID: 2100000, guid: ddf3ca34776324c49a2442eb54829851, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__pasted__pasted__pasted__pasted__pasted__Indoor_Metal6
+    second: {fileID: 2100000, guid: 48d44ecbf5e9d1f46ae76b7fdcfb5dfe, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
