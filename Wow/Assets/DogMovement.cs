@@ -16,10 +16,10 @@ public class DogMovement : MonoBehaviour
     {
         float horiz = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
-        Vector2 movedir = new Vector2(horiz,vert);
+        Vector3 movedir = new Vector3(horiz, 0, vert);
         movedir.Normalize();
         transform.Translate(movedir * speed * Time.deltaTime,Space.World);
-        if (movedir != Vector2.zero)
+        if (movedir != Vector3.zero)
         {
             transform.up = movedir;
         }
