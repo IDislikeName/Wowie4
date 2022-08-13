@@ -30,7 +30,7 @@ public class RoombaBehavior : MonoBehaviour
         if (currentstate == State.Turning)
         {
             transform.Rotate(0, turnSpeed*Time.deltaTime, 0);
-            if (Mathf.Abs(transform.rotation.eulerAngles.y - targetDeg) <= 0.1f)
+            if (Mathf.Abs(transform.rotation.eulerAngles.y - targetDeg) <= 0.5f)
             {
                 currentstate = State.Moving;
             }
