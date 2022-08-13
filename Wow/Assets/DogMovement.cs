@@ -21,7 +21,7 @@ public class DogMovement : MonoBehaviour
         transform.Translate(movedir * speed * Time.deltaTime,Space.World);
         if (movedir != Vector3.zero)
         {
-            transform.up = movedir;
+            transform.forward = movedir;
         }
     }
 }
