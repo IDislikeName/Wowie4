@@ -331,10 +331,10 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.49207902, g: 0.7836166, b: 0.9150943, a: 0.7607843}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.5188679, g: 0.8529875, b: 1, a: 0.69803923}
-    - _ColorDim: {r: 0, g: 0.3759779, b: 0.5377358, a: 0.69803923}
+    - _Color: {r: 0.5188679, g: 0.8529875, b: 1, a: 0}
+    - _ColorDim: {r: 0, g: 0.3759779, b: 0.5377358, a: 0}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
-    - _ColorDimExtra: {r: 0, g: 0.60684156, b: 0.8679245, a: 0.69803923}
+    - _ColorDimExtra: {r: 0.57078433, g: 0.6600874, b: 0.6981132, a: 0}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorGradient: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
