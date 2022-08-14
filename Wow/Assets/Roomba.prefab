@@ -646,6 +646,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
+  slowSpeed: 0.1
+  cleaning: 0
   targetDeg: 0
   turnSpeed: 45
   currentstate: 0
