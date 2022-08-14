@@ -5,6 +5,8 @@ using UnityEngine;
 public class RoombaBehavior : MonoBehaviour
 {
     public float speed;
+    public float slowSpeed = 0.1f;
+    public bool cleaning = false;
     Rigidbody rb;
     public float targetDeg;
     public float turnSpeed;
@@ -25,13 +27,19 @@ public class RoombaBehavior : MonoBehaviour
     {
         if (currentstate == State.Moving)
         {
-            transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
+            if (cleaning)
+            {
+                transform.Translate(transform.forward * slowSpeed* Time.deltaTime, Space.World);
+            }                
+            else
+                transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
         }
         if (currentstate == State.Turning)
         {
             transform.Rotate(0, turnSpeed*Time.deltaTime, 0);
             if (Mathf.Abs(transform.rotation.eulerAngles.y - targetDeg) <= 0.2f)
             {
+                transform.eulerAngles = new Vector3(transform.rotation.eulerAngles.x, targetDeg, transform.rotation.eulerAngles.z);
                 currentstate = State.Moving;
             }
         }
@@ -55,5 +63,24 @@ public class RoombaBehavior : MonoBehaviour
                 Turn(45);
             }
         }
+    }
+    public void Clean(GameObject trash)
+    {
+        StartCoroutine(Cleaner(trash));
+    }
+    IEnumerator Cleaner(GameObject trash)
+    {
+        cleaning = true;
+        yield return new WaitForSeconds(0.2f);
+        cleaning = false;
+        yield return new WaitForSeconds(0.2f);
+        cleaning = true;
+        yield return new WaitForSeconds(0.2f);
+        cleaning = false;
+        yield return new WaitForSeconds(0.2f);
+        cleaning = true;
+        yield return new WaitForSeconds(0.2f);
+        cleaning = false;
+        Destroy(trash);
     }
 }

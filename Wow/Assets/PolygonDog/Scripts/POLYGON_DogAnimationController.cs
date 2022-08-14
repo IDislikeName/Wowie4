@@ -284,6 +284,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
             {
                 
                 pickUpObj.transform.position = new Vector3(head.position.x, 0.1f, head.position.z);
+                pickUpObj.transform.eulerAngles = new Vector3(0, head.eulerAngles.y, 0);
                 pickUpObj = null;
             }
         }
