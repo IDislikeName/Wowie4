@@ -103,6 +103,10 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     public Transform fxTransform;
     public Transform fxTail;
     private CharacterController characterController;
+    public GameObject pickUp;
+    public GameObject pickUpObj;
+    public bool pickingUp;
+    public Transform head;
     void Start() // On start store dogKeyCodes
     {
         characterController = GetComponent<CharacterController>();
@@ -230,9 +234,18 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         } 
     }
+    IEnumerator PickUp()
+    {
+        pickingUp = true;
+        yield return new WaitForSeconds(0.2f);
+        pickUp.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        pickingUp = false;
+        pickUp.SetActive(false);
+    }
    void Update()
     {
-        bool attackMode = Input.GetKey(dogKeyCodes[0]); // Get the current keycodes assigned by user
+        bool attackMode = Input.GetKeyDown(dogKeyCodes[0]); // Get the current keycodes assigned by user
         bool secondAttack = Input.GetKey(dogKeyCodes[1]);
         bool walkPressed = Input.GetKey(dogKeyCodes[2]);
         bool turnBack = Input.GetKey(dogKeyCodes[3]);
@@ -262,6 +275,17 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         if (attackMode)
         {
             dogAnim.SetBool("AttackReady_b", true);
+            if (pickUpObj == null)
+            {
+                if(!pickingUp)
+                    StartCoroutine(PickUp());
+            }
+            else
+            {
+                
+                pickUpObj.transform.position = new Vector3(head.position.x, 0.1f, head.position.z);
+                pickUpObj = null;
+            }
         }
         else
         {
@@ -269,11 +293,11 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         if (secondAttack)
         {
-            dogAnim.SetInteger("AttackType_int", 2);
+            //dogAnim.SetInteger("AttackType_int", 2);
         }
         else
         {
-            dogAnim.SetInteger("AttackType_int", 0);
+            //dogAnim.SetInteger("AttackType_int", 0);
         }
         if (randActionPressed)
         {
@@ -345,11 +369,11 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         if (jumpPressed)
         {
-            dogAnim.SetTrigger("Jump_tr");
+            //dogAnim.SetTrigger("Jump_tr");
         }
         if (sitPressed) // Sit
         {
-            if (Sit_b == false)
+            /*if (Sit_b == false)
             {
                 Sit_b = true;
             }
@@ -357,7 +381,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
             {
                 Sit_b = false;
             }
-            dogAnim.SetBool("Sit_b", Sit_b); // Set sit animation
+            dogAnim.SetBool("Sit_b", Sit_b); // Set sit animation*/
         }
         if (sleepPressed) // Sleep
         {
@@ -373,18 +397,19 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         if (exitPressed)
         {
-
+        /*
         #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
         #elif UNITY_WEBPLAYER
                 Application.OpenURL(webplayerQuitURL);
         #else
             Application.Quit();
-        #endif
+        #endif*/
         }
         if (deathPressed)
         {
-            dogAnim.SetBool("Death_b", true);  // Kill the dog 
+            
+            //dogAnim.SetBool("Death_b", true);  // Kill the dog
         }
         if (resetPressed)
         {
@@ -393,83 +418,90 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         if (a1Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(1));
+            //StartCoroutine(DogActions(1));
         }
         if (a2Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(2));
+            //StartCoroutine(DogActions(2));
         }
         if (a3Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(3));
+            //StartCoroutine(DogActions(3));
         }
         if (a4Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(4));
+            /*StartCoroutine(DogActions(4));
             if(!Sit_b)
             {
             ParticleSystem go = Instantiate(dirtFX, new Vector3(this.transform.position.x, fxTransform.transform.position.y, fxTransform.transform.position.z), this.transform.rotation);
             go.transform.SetParent(fxTransform);
             go.transform.localPosition = new Vector3(go.transform.localPosition.x, go.transform.localPosition.y, go.transform.localPosition.z + 0.3f); 
-            }           
+            }*/           
         }
         if (a5Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(5));
+            //StartCoroutine(DogActions(5));
         }
         if (a6Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(6));
+            //StartCoroutine(DogActions(6));
         }
         if (a7Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(7));
+            //StartCoroutine(DogActions(7));
         }
         if (a8Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(8));
+            /*StartCoroutine(DogActions(8));
              if(!Sit_b)
             {
             ParticleSystem go = Instantiate(peeFX, new Vector3(this.transform.position.x, fxTransform.transform.position.y + 0.5f, fxTransform.transform.position.z - 0f), this.transform.rotation);
             go.transform.SetParent(fxTransform);
             go.transform.localPosition = new Vector3(go.transform.localPosition.x, go.transform.localPosition.y, go.transform.localPosition.z - 0.2f);
             go.transform.localRotation = Quaternion.Euler(0, -45, 0);
-            }  
+            }*/
         }
         if (a9Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(9));
+            /*StartCoroutine(DogActions(9));
              if(!Sit_b)
             {
             ParticleSystem go = Instantiate(poopFX, new Vector3(this.transform.position.x, fxTransform.transform.position.y + 0.5f, fxTransform.transform.position.z - 0f), this.transform.rotation);
             go.transform.SetParent(fxTransform);
             go.transform.localPosition = new Vector3(go.transform.localPosition.x, go.transform.localPosition.y, go.transform.localPosition.z - 0.35f);
-            }
+            }*/
         }
         if (a10Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(10));
+            /*StartCoroutine(DogActions(10));
              if(!Sit_b)
             {
             ParticleSystem go = Instantiate(waterFX, new Vector3(this.transform.position.x, fxTransform.transform.position.y + 0.5f, fxTransform.transform.position.z - 0f), this.transform.rotation);
             go.transform.SetParent(fxTransform);
             go.transform.localPosition = new Vector3(go.transform.localPosition.x, go.transform.localPosition.y - 0.0f, go.transform.localPosition.z);
             go.gameObject.transform.GetChild(0).transform.position = new Vector3(fxTail.transform.position.x, fxTail.transform.position.y, fxTail.transform.position.z);
-            }
+            }*/
         }
         if (a11Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(11));
+            //StartCoroutine(DogActions(11));
         }
         if (a12Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(12));
+            //StartCoroutine(DogActions(12));
         }
         if (a13Pressed && !dogActionEnabled)
         {
-            StartCoroutine(DogActions(13));
+            //StartCoroutine(DogActions(13));
         }
         dogAnim.SetTrigger("Blink_tr"); // Blink will continue unless asleep or dead
         dogAnim.SetFloat("Movement_f", w_movement); // Set movement speed for all required parameters
+        if (pickUpObj != null)
+        {
+            pickUpObj.transform.position = head.position;
+            pickUpObj.transform.rotation = head.rotation;
+        }
+        //transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
     }
+    
 }

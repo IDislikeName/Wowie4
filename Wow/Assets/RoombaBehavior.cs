@@ -47,9 +47,12 @@ public class RoombaBehavior : MonoBehaviour
     {
         if (currentstate == State.Moving)
         {
-            if (other.CompareTag("Wall"))
+            if (other.CompareTag("Wall")|| other.CompareTag("Big"))
             {
                 Turn(90);
+            }
+            else if (other.CompareTag("Small")) {
+                Turn(45);
             }
         }
     }
