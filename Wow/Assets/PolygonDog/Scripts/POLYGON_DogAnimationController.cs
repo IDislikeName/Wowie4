@@ -1,5 +1,4 @@
-﻿
-/*
+﻿/*
  * POLYGON DOG ANIMATION SCRIPT
  * DESCRIPTION: This script demonstrates the range of animations and Prefabs included in 
  * Polygon Dog which can be customized for the users preference. Please attach this to the
@@ -88,8 +87,8 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     bool Sleep_b = false;
     bool Sit_b = false;
     private float w_movement = 0.0f; // Run value
-    public float acceleration = 0.5f;
-    public float decelleration = 3.0f;
+    public float acceleration = 1.0f;
+    public float decelleration = 1.0f;
     private float maxWalk = 0.5f;
     private float maxRun = 1.0f;
     private float currentSpeed;
@@ -103,8 +102,10 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     private Vector3 newSpawn = new Vector3();
     public Transform fxTransform;
     public Transform fxTail;
+    private CharacterController characterController;
     void Start() // On start store dogKeyCodes
     {
+        characterController = GetComponent<CharacterController>();
         dogAnim = GetComponent<Animator>(); // Get the animation component
         currentSpeed = 0.0f;
         DogNewTypes = new string[]
@@ -304,13 +305,13 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         {
             if (w_movement > 0.25 && w_movement < 0.75)
             {
-                transform.Rotate(Vector3.up * Time.deltaTime * -90, Space.Self);
+                transform.Rotate(Vector3.up * Time.deltaTime * -95, Space.Self);
             }
             if (w_movement > 0.75)
             {
-                transform.Rotate(Vector3.up * Time.deltaTime * -90, Space.Self);
+                transform.Rotate(Vector3.up * Time.deltaTime * -65, Space.Self);
             }
-            if (w_movement < 0.1)
+            if (w_movement < 0.25)
             {
                 dogAnim.SetInteger("TurnAngle_int", -90);
             }
@@ -319,11 +320,11 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         {
             if (w_movement > 0.25 && w_movement < 0.75)
             {
-                transform.Rotate(-Vector3.down * Time.deltaTime * 90, Space.Self);
+                transform.Rotate(-Vector3.down * Time.deltaTime * 95, Space.Self);
             }
             if (w_movement > 0.75)
             {
-                transform.Rotate(-Vector3.down * Time.deltaTime * 90, Space.Self);
+                transform.Rotate(-Vector3.down * Time.deltaTime * 65, Space.Self);
             }
             if (w_movement < 0.25)
             {
@@ -381,10 +382,10 @@ public class POLYGON_DogAnimationController : MonoBehaviour
             Application.Quit();
         #endif
         }
-        /*if (deathPressed)
+        if (deathPressed)
         {
             dogAnim.SetBool("Death_b", true);  // Kill the dog 
-        }*/
+        }
         if (resetPressed)
         {
             dogAnim.Rebind();
@@ -470,12 +471,5 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         dogAnim.SetTrigger("Blink_tr"); // Blink will continue unless asleep or dead
         dogAnim.SetFloat("Movement_f", w_movement); // Set movement speed for all required parameters
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Wall"))
-        {
-            w_movement = 0;
-        }
     }
 }
