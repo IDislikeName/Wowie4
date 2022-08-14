@@ -30,7 +30,7 @@ public class RoombaBehavior : MonoBehaviour
         if (currentstate == State.Turning)
         {
             transform.Rotate(0, turnSpeed*Time.deltaTime, 0);
-            if (Mathf.Abs(transform.rotation.eulerAngles.y - targetDeg) <= 0.5f)
+            if (Mathf.Abs(transform.rotation.eulerAngles.y - targetDeg) <= 0.2f)
             {
                 currentstate = State.Moving;
             }
@@ -40,7 +40,7 @@ public class RoombaBehavior : MonoBehaviour
     {
         currentstate = State.Turning;
         targetDeg = transform.rotation.eulerAngles.y+degrees;
-        targetDeg = targetDeg % 360;
+        targetDeg = Mathf.Round( targetDeg % 360);
     }
 
     private void OnTriggerEnter(Collider other)
