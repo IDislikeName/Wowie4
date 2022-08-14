@@ -471,4 +471,11 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         dogAnim.SetTrigger("Blink_tr"); // Blink will continue unless asleep or dead
         dogAnim.SetFloat("Movement_f", w_movement); // Set movement speed for all required parameters
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Wall"))
+        {
+            w_movement = 0;
+        }
+    }
 }
