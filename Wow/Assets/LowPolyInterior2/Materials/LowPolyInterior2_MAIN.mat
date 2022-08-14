@@ -271,9 +271,9 @@ Material:
     - _RefractionModel: 0
     - _RimEnabled: 0
     - _SSRefractionProjectionModel: 0
-    - _SelfShadingSize: 0.805
+    - _SelfShadingSize: 0.786
     - _SelfShadingSizeExtra: 0.465
-    - _ShadowEdgeSize: 0.132
+    - _ShadowEdgeSize: 0.183
     - _ShadowEdgeSizeExtra: 0.317
     - _Smoothness: 0.05
     - _SmoothnessRemapMax: 1
@@ -330,10 +330,10 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorDim: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.2784314, g: 0, b: 0.84705883, a: 1}
+    - _ColorDim: {r: 0.6, g: 0, b: 0.9411765, a: 1}
     - _ColorDimCurve: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorDimExtra: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorDimExtra: {r: 0.9764706, g: 0, b: 0.7490196, a: 1}
     - _ColorDimSteps: {r: 1, g: 1, b: 1, a: 1}
     - _ColorGradient: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
