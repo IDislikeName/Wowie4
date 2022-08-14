@@ -809,7 +809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.935
+      value: -2.562
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalPosition.y
@@ -817,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.062
+      value: -2.382
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2061,7 +2061,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 0.8
+  m_Height: 1
   m_Radius: 0.2
   m_SlopeLimit: 0
   m_StepOffset: 0
