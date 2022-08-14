@@ -86,7 +86,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     //bool death_b = false;
     bool Sleep_b = false;
     bool Sit_b = false;
-    private float w_movement = 0.0f; // Run value
+    public float w_movement = 0.0f; // Run value
     public float acceleration = 1.0f;
     public float decelleration = 1.0f;
     private float maxWalk = 0.5f;
@@ -248,9 +248,9 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         bool attackMode = Input.GetKeyDown(dogKeyCodes[0]); // Get the current keycodes assigned by user
         bool secondAttack = Input.GetKey(dogKeyCodes[1]);
         bool walkPressed = Input.GetKey(dogKeyCodes[2]);
-        bool turnBack = Input.GetKey(dogKeyCodes[3]);
-        bool leftTurn = Input.GetKey(dogKeyCodes[4]);
-        bool rightTurn = Input.GetKey(dogKeyCodes[5]);
+        bool turnBack = Input.GetKey(dogKeyCodes[3])&&!pickingUp;
+        bool leftTurn = Input.GetKey(dogKeyCodes[4]) && !pickingUp;
+        bool rightTurn = Input.GetKey(dogKeyCodes[5]) && !pickingUp;
         bool randActionPressed = Input.GetKeyDown(dogKeyCodes[6]);
         bool jumpPressed = Input.GetKeyDown(dogKeyCodes[7]);
         bool runPressed = Input.GetKey(dogKeyCodes[8]);
