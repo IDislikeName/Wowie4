@@ -8,7 +8,7 @@ public class Clean : MonoBehaviour
     {
         if (other.CompareTag("Trash"))
         {
-            Destroy(other);
+            Destroy(other.gameObject);
         }
     }
 }
