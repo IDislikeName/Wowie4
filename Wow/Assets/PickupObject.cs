@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PickupObject : MonoBehaviour
 {
@@ -29,24 +30,20 @@ public class PickupObject : MonoBehaviour
             GetComponentInParent<POLYGON_DogAnimationController>().pickUpObj = other.gameObject;
         }
         if (other.CompareTag("Scene1")){
-             GetComponentInParent<POLYGON_DogAnimationController>().isTouchingSceneBowl = true;
-             GetComponentInParent<POLYGON_DogAnimationController>().SceneNum = 1;
+
+            SceneManager.LoadScene(1);
         }        
         if (other.CompareTag("Scene2")){
-             GetComponentInParent<POLYGON_DogAnimationController>().isTouchingSceneBowl = true;
-             GetComponentInParent<POLYGON_DogAnimationController>().SceneNum = 2;
+            SceneManager.LoadScene(2);
         }
         if (other.CompareTag("Scene3")){
-             GetComponentInParent<POLYGON_DogAnimationController>().isTouchingSceneBowl = true;
-             GetComponentInParent<POLYGON_DogAnimationController>().SceneNum = 3;
+            SceneManager.LoadScene(3);
         }
         if (other.CompareTag("Scene4")){
-            GetComponentInParent<POLYGON_DogAnimationController>().isTouchingSceneBowl = true;
-            GetComponentInParent<POLYGON_DogAnimationController>().SceneNum = 4;
+            SceneManager.LoadScene(4);
         }
         if (other.CompareTag("Scene5")){
-             GetComponentInParent<POLYGON_DogAnimationController>().isTouchingSceneBowl = true;
-             GetComponentInParent<POLYGON_DogAnimationController>().SceneNum = 5;
+            SceneManager.LoadScene(5);
         }
         if (other.CompareTag("Credit"))
         {

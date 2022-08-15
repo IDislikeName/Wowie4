@@ -109,8 +109,6 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     public bool pickingUp;
     public bool jumpingScene;
     public Transform head;
-    public bool isTouchingSceneBowl = false;
-    public int SceneNum;
     public AudioClip up;
     public AudioClip down;
     public bool gameStarted = false;
@@ -222,7 +220,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         newSpawn = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
     }
-    IEnumerator DogActions(int actionType) // Dog action coroutine
+    public IEnumerator DogActions(int actionType) // Dog action coroutine
     {
         dogActionEnabled = true; // Enable the dog animation flag
         dogAnim.SetInteger("ActionType_int", actionType); // Enable Animation
@@ -250,36 +248,15 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         pickingUp = false;
         pickUp.SetActive(false);
     }
-    IEnumerator jumpScene(){
-        Debug.Log("jumpscene");
-        jumpingScene = true;
-        StartCoroutine(DogActions(5));
-        yield return new WaitForSeconds(4f);
-        pickUp.SetActive(true);
-        SceneManager.LoadScene(SceneNum);
-        yield return new WaitForSeconds(0.2f);
-        jumpingScene = false;
-        pickUp.SetActive(false);
-    }
     IEnumerator waitForSeconds(){
         yield return new WaitForSeconds(0.2f);
     }
 
-    public void OnTriggerStay(Collider other){
-        if(other.CompareTag("Scene1") || other.CompareTag("Scene2") || other.CompareTag("Scene3") || other.CompareTag("Scene4") ||other.CompareTag("Scene5")){
-                     isTouchingSceneBowl = true;
-                     Debug.Log(isTouchingSceneBowl);
-        }
-        else{
-            isTouchingSceneBowl = false;
-            Debug.Log(isTouchingSceneBowl);
-        }
-    }
    void Update()
     {
         bool attackMode = Input.GetKeyDown(dogKeyCodes[0]); // Get the current keycodes assigned by user
         bool secondAttack = Input.GetKey(dogKeyCodes[1]);
-        bool walkPressed = Input.GetKey(dogKeyCodes[2]);
+        bool walkPressed = Input.GetKey(dogKeyCodes[2])&&gameStarted;
         bool turnBack = Input.GetKey(dogKeyCodes[3])&&!pickingUp;
         bool leftTurn = Input.GetKey(dogKeyCodes[4]) && !pickingUp;
         bool rightTurn = Input.GetKey(dogKeyCodes[5]) && !pickingUp;
@@ -310,10 +287,6 @@ public class POLYGON_DogAnimationController : MonoBehaviour
             /*if(!isTouchingSceneBowl){
                 dogAnim.SetBool("AttackReady_b", true);
             }*/
-            if(isTouchingSceneBowl){
-                    if(!jumpingScene)
-                    StartCoroutine(jumpScene());
-            }
             
             if (pickUpObj == null)
             {
