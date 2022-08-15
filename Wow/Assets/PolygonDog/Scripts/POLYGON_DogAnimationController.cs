@@ -109,9 +109,15 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     public bool pickingUp;
     public bool jumpingScene;
     public Transform head;
+<<<<<<< Updated upstream
     public bool Gamestarted = false;
     public bool isTouchingSceneBowl = false;
     public int SceneNum;
+=======
+    public AudioClip up;
+    public AudioClip down;
+    public bool gameStarted = false;
+>>>>>>> Stashed changes
     void Start() // On start store dogKeyCodes
     {
         characterController = GetComponent<CharacterController>();
@@ -289,8 +295,8 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         bool a10Pressed = Input.GetKey(dogKeyCodes[23]);
         bool a11Pressed = Input.GetKey(dogKeyCodes[24]);
         bool a12Pressed = Input.GetKey(dogKeyCodes[25]);
-        bool a13Pressed = Input.GetKey(dogKeyCodes[26]);
-        if (attackMode)
+        bool a13Pressed = Input.GetKey(dogKeyCodes[26]);       
+        if (attackMode&&gameStarted)
         {
             if(!isTouchingSceneBowl){
                 dogAnim.SetBool("AttackReady_b", true);
@@ -302,14 +308,19 @@ public class POLYGON_DogAnimationController : MonoBehaviour
             
             if (pickUpObj == null)
             {
-                if(!pickingUp)
+                if (!pickingUp)
+                {
                     StartCoroutine(PickUp());
+                    SoundManager.instance.PlayClip(up);
+                }
+                   
             }
             else
             {
                 
                 pickUpObj.transform.position = new Vector3(head.position.x, 0.1f, head.position.z);
                 pickUpObj.transform.eulerAngles = new Vector3(0, head.eulerAngles.y, 0);
+                SoundManager.instance.PlayClip(down);
                 pickUpObj = null;
             }
         }
@@ -351,7 +362,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         {
             w_movement -= Time.deltaTime * decelleration;
         }
-        if (leftTurn)
+        if (leftTurn&&gameStarted)
         {
                 //dogAnim.SetFloat("Movement_f", 0.49f);
                 //w_movement += Time.deltaTime * acceleration;
@@ -379,7 +390,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         {
             dogAnim.SetBool("Walking", false);
         }*/
-        else if (rightTurn)
+        else if (rightTurn&&gameStarted)
         {
             dogAnim.SetFloat("Movement_f", 0.49f);
             if (w_movement > 0.25 && w_movement < 0.75)
@@ -396,7 +407,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
                 //dogAnim.SetInteger("TurnAngle_int", 90);
             }
         }
-        else if (turnBack)
+        else if (turnBack&&gameStarted)
         {
             dogAnim.SetInteger("TurnAngle_int", 180);
         }
@@ -426,7 +437,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         }
         if (sleepPressed) // Sleep
         {
-            if (Sleep_b == false)
+            /*if (Sleep_b == false)
             {
                 Sleep_b = true;
             }
@@ -434,7 +445,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
             {
                 Sleep_b = false;
             }
-            dogAnim.SetBool("Sleep_b", Sleep_b); // Set sleep animation
+            dogAnim.SetBool("Sleep_b", Sleep_b); // Set sleep animation*/
         }
         if (exitPressed)
         {

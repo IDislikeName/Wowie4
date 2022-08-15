@@ -10,6 +10,10 @@ public class RoombaBehavior : MonoBehaviour
     Rigidbody rb;
     public float targetDeg;
     public float turnSpeed;
+    public AudioClip move;
+    public AudioClip clean;
+    public AudioClip turn;
+    public AudioSource aud;
     public enum State
     {
         Moving,
@@ -19,7 +23,7 @@ public class RoombaBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        aud = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,9 +31,14 @@ public class RoombaBehavior : MonoBehaviour
     {
         if (currentstate == State.Moving)
         {
+            if (!aud.isPlaying)
+            {
+                aud.PlayOneShot(move);
+            }
             if (cleaning)
             {
                 transform.Translate(transform.forward * slowSpeed* Time.deltaTime, Space.World);
+                
             }                
             else
                 transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
@@ -46,6 +55,7 @@ public class RoombaBehavior : MonoBehaviour
     }
     public void Turn(float degrees)
     {
+        SoundManager.instance.PlayClip(turn);
         currentstate = State.Turning;
         targetDeg = transform.rotation.eulerAngles.y+degrees;
         targetDeg = Mathf.Round( targetDeg % 360);
@@ -66,6 +76,7 @@ public class RoombaBehavior : MonoBehaviour
     }
     public void Clean(GameObject trash)
     {
+        SoundManager.instance.PlayClip(clean);
         StartCoroutine(Cleaner(trash));
     }
     IEnumerator Cleaner(GameObject trash)

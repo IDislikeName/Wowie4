@@ -129,7 +129,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_Name
-      value: Dog (1) Variant
+      value: Dog (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 100170, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_IsActive
@@ -809,7 +813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.562
+      value: -3.44
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalPosition.y
@@ -817,23 +821,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.382
+      value: 4.55
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -841,7 +845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2061,13 +2065,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 0.13
-  m_Radius: 0.53
+  m_Height: 0.1
+  m_Radius: 0.58
   m_SlopeLimit: 0
   m_StepOffset: 0
   m_SkinWidth: 0.1
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.5, z: 0.12}
+  m_Center: {x: 0, y: 0.58, z: 0.06}
 --- !u!114 &1573915116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2094,7 +2098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayUI: 0
-  Attack: 323
+  Attack: 32
   secondAttack: 324
   forward: 119
   backward: 115

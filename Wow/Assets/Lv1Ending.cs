@@ -8,6 +8,7 @@ public class Lv1Ending : MonoBehaviour
     public bool started = false;
     public GameObject objective;
     public GameObject textbox;
+    public GameObject doorBox;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,5 +43,6 @@ public class Lv1Ending : MonoBehaviour
         yield return new WaitForSeconds(3f);
         textbox.GetComponent<TextBox>().Dis(2);
         yield return new WaitForSeconds(1f);
+        doorBox.SetActive(false);
     }
 }

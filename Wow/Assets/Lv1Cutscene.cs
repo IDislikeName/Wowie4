@@ -14,11 +14,13 @@ public class Lv1Cutscene : MonoBehaviour
     public GameObject textbox1;
     public Vector3 camPos;
     public GameObject objective;
+    public GameObject doorBox;
     // Start is called before the first frame update
     void Start()
     {
         cam.Follow = null;
         cam.LookAt = null;
+        doorBox.SetActive(false);
     }
 
     // Update is called once per frame
@@ -53,6 +55,7 @@ public class Lv1Cutscene : MonoBehaviour
         dogMoving = true;
         yield return new WaitForSeconds(1.3f);
         dogMoving = false;
+        doorBox.SetActive(true);
         
         cam.Follow = dog.transform;
         cam.LookAt = dog.transform;
@@ -72,5 +75,6 @@ public class Lv1Cutscene : MonoBehaviour
         objective.SetActive(true);
         yield return new WaitForSeconds(3f);
         objective.SetActive(false);
+        dog.GetComponent<POLYGON_DogAnimationController>().gameStarted = true;
     }
 }

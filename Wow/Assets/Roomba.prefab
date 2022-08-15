@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 6258156493801692166}
   m_Layer: 0
   m_Name: Roomba
-  m_TagString: Untagged
+  m_TagString: Roomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -650,6 +650,9 @@ MonoBehaviour:
   cleaning: 0
   targetDeg: 0
   turnSpeed: 45
+  move: {fileID: 8300000, guid: 5681b3b37db94b3479a38c0d61bb81f6, type: 3}
+  clean: {fileID: 8300000, guid: dc5dfe14c2404ce41bc1aae4df87d98f, type: 3}
+  turn: {fileID: 8300000, guid: 865a79a2ab90ece45b8cbe50546823b5, type: 3}
   currentstate: 0
 --- !u!65 &6258156493801692167
 BoxCollider:
