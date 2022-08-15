@@ -26,8 +26,47 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
+    public GameObject[] stains;
+    public bool doorOpened;
+    public GameObject exit;
+    public bool doorOpening;
+    public GameObject exitCol;
     private void Start()
     {
         
+    }
+    private void Update()
+    {
+        if (!CheckStains()&&!doorOpened)
+        {
+            OpenDoor();   
+        }
+        if (doorOpening)
+        {
+            exit.transform.Rotate(0, -30 * Time.deltaTime, 0);
+            if (Mathf.Abs(exit.transform.rotation.eulerAngles.y - 270) <= 0.8f)
+            {
+                exit.transform.eulerAngles = new Vector3(exit.transform.rotation.eulerAngles.x, 270, exit.transform.rotation.eulerAngles.z);
+                doorOpening = false;
+            }
+        }
+    }
+    public bool CheckStains()
+    {
+        bool flag = false;
+        for (int i = 0; i < stains.Length; i++)
+        {
+            if (stains[i] != null)
+            {
+                flag = true;
+            }
+        }
+        return flag;
+    }
+    public void OpenDoor()
+    {
+        doorOpened = true;
+        doorOpening = true;
+        exitCol.tag = "Untagged";
     }
 }
