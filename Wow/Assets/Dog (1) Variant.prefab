@@ -2105,7 +2105,7 @@ MonoBehaviour:
   left: 97
   right: 100
   action: 102
-  jump: 32
+  jump: 256
   run: 304
   sit: 306
   sleep: 113
@@ -2138,8 +2138,13 @@ MonoBehaviour:
   pickUp: {fileID: 1678034498}
   pickUpObj: {fileID: 0}
   pickingUp: 0
+  jumpingScene: 0
   head: {fileID: 3517976496324420727}
-  Gamestarted: 0
+  isTouchingSceneBowl: 0
+  SceneNum: 0
+  up: {fileID: 8300000, guid: 4a49d67c50f90244283db01528ec47dc, type: 3}
+  down: {fileID: 8300000, guid: 1603657ff0e91a145a0ce5a8904fdef5, type: 3}
+  gameStarted: 0
 --- !u!114 &6998165815490235801
 MonoBehaviour:
   m_ObjectHideFlags: 0

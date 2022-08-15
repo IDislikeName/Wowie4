@@ -109,7 +109,6 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     public bool pickingUp;
     public bool jumpingScene;
     public Transform head;
-    public bool Gamestarted = false;
     public bool isTouchingSceneBowl = false;
     public int SceneNum;
     public AudioClip up;
