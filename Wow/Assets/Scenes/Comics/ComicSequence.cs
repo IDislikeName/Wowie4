@@ -31,7 +31,7 @@ public class ComicSequence : MonoBehaviour
 
         if (canLoad && Input.GetKeyDown(KeyCode.Space))
         {
-            if (stage >= LPositions.Count) { } //SceneManager.LoadScene("");
+            if (stage >= LPositions.Count) { print("change scene"); } //SceneManager.LoadScene("");
             canLoad = false;
             StartCoroutine(LoadComic());
             StartCoroutine(SetCamera());
@@ -46,7 +46,7 @@ public class ComicSequence : MonoBehaviour
 
         IEnumerator LoadComic()
         {
-            float duration = Random.Range(0.2f,0.8f);
+            float duration = Random.Range(0.3f,0.8f);
             float timeCount = 0f;
             Vector3 origionalPos = LComics[stage].position;
             while ((LPositions[stage].position - LComics[stage].position).magnitude >= 0.1)
@@ -61,7 +61,7 @@ public class ComicSequence : MonoBehaviour
 
         IEnumerator SetCamera()
         {
-            float duration = Random.Range(0.15f, 0.6f);
+            float duration = Random.Range(0.3f, 0.6f);
             float timeCount = 0f;
             Vector3 origionalPos = transform.position;
             Vector3 targetPos;
