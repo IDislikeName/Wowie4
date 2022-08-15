@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PickupObject : MonoBehaviour
 {
+    public GameObject canvas;
     
     // Start is called before the first frame update
     //public bool ispickup = false;
     void Start()
     {
-        
+
     }
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -43,6 +47,12 @@ public class PickupObject : MonoBehaviour
         if (other.CompareTag("Scene5")){
              GetComponentInParent<POLYGON_DogAnimationController>().isTouchingSceneBowl = true;
              GetComponentInParent<POLYGON_DogAnimationController>().SceneNum = 5;
+        }
+        if (other.CompareTag("Credit"))
+        {
+            //ispickup = true;
+            GetComponentInParent<POLYGON_DogAnimationController>().pickUpObj = other.gameObject;
+            canvas.GetComponent<ToogleNames>().EnableGO();
         }
 
     }
