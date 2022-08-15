@@ -26,18 +26,23 @@ public class PickupObject : MonoBehaviour
         }
         if (other.CompareTag("Scene1")){
              GetComponentInParent<POLYGON_DogAnimationController>().SceneNum = 1;
+             GetComponentInParent<POLYGON_DogAnimationController>().isTouchingSceneBowl = true;
         }        
         if (other.CompareTag("Scene2")){
              GetComponentInParent<POLYGON_DogAnimationController>().SceneNum = 2;
+            GetComponentInParent<POLYGON_DogAnimationController>().isTouchingSceneBowl = true;
         }
         if (other.CompareTag("Scene3")){
              GetComponentInParent<POLYGON_DogAnimationController>().SceneNum = 3;
+            GetComponentInParent<POLYGON_DogAnimationController>().isTouchingSceneBowl = true;
         }
         if (other.CompareTag("Scene4")){
              GetComponentInParent<POLYGON_DogAnimationController>().SceneNum = 4;
+            GetComponentInParent<POLYGON_DogAnimationController>().isTouchingSceneBowl = true;
         }
         if (other.CompareTag("Scene5")){
              GetComponentInParent<POLYGON_DogAnimationController>().SceneNum = 5;
+            GetComponentInParent<POLYGON_DogAnimationController>().isTouchingSceneBowl = true;
         }
 
     }
