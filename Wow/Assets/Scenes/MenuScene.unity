@@ -5304,7 +5304,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[W] - Move Forward  \n[A/D] - Change Direction \r\n\r[SPACE] - Choose"
+  m_text: "[W] - Move Forward  \n[A/D] - Change Direction \r\n\r[SPACE] - Choose\n[Left
+    Shift - Run]"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e6886e34d4c079a44b8f0ff6cc94bc3c, type: 2}
   m_sharedMaterial: {fileID: -8605816488734185599, guid: e6886e34d4c079a44b8f0ff6cc94bc3c, type: 2}
