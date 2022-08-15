@@ -31,8 +31,9 @@ public class ComicSequence : MonoBehaviour
 
         if (canLoad && Input.GetKeyDown(KeyCode.Space))
         {
-            if (stage >= LPositions.Count) { print("change scene"); } //SceneManager.LoadScene("");
-            canLoad = false;
+            if (stage >= LPositions.Count)
+            { SceneManager.LoadScene("MenuScene");} 
+                canLoad = false;
             StartCoroutine(LoadComic());
             StartCoroutine(SetCamera());
 
