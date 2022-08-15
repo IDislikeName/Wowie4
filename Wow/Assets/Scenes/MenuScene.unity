@@ -3974,7 +3974,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7765727, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5297,7 +5297,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388778841}
   m_LocalRotation: {x: 0.16489393, y: -0, z: -0, w: 0.9863113}
-  m_LocalPosition: {x: 0, y: 0, z: -453.2}
+  m_LocalPosition: {x: 0, y: 0, z: -459}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5306,7 +5306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 18.982, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -220.3, y: -146.6}
+  m_AnchoredPosition: {x: -183, y: -162}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1388778843
@@ -5329,8 +5329,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[W] - Move Forward  \n[A/D] - Change Direction \r\n\r[SPACE] - Choose\n[Left
-    Shift - Run]"
+  m_text: "[W] - Move Forward  \n[A/D] - Change Direction \r\n\r[SPACE] - Choose/Take\n[Left
+    Shift] - Run\n[ESC] - Back [R] - Restart"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e6886e34d4c079a44b8f0ff6cc94bc3c, type: 2}
   m_sharedMaterial: {fileID: -8605816488734185599, guid: e6886e34d4c079a44b8f0ff6cc94bc3c, type: 2}
@@ -5357,8 +5357,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5393,7 +5393,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -124.81853, z: -374.28033, w: 0}
+  m_margin: {x: 0, y: -124.81853, z: -374.28033, w: -89.01888}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
