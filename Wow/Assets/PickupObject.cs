@@ -28,6 +28,7 @@ public class PickupObject : MonoBehaviour
         {
             //ispickup = true;
             GetComponentInParent<POLYGON_DogAnimationController>().pickUpObj = other.gameObject;
+            SoundManager.instance.PlayClip(GetComponentInParent<POLYGON_DogAnimationController>().up);
         }
         if (other.CompareTag("Scene1")){
 
@@ -50,6 +51,7 @@ public class PickupObject : MonoBehaviour
             //ispickup = true;
             GetComponentInParent<POLYGON_DogAnimationController>().pickUpObj = other.gameObject;
             canvas.GetComponent<ToogleNames>().EnableGO();
+            SoundManager.instance.PlayClip(GetComponentInParent<POLYGON_DogAnimationController>().up);
         }
 
     }

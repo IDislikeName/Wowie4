@@ -294,8 +294,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
 
                 if (!pickingUp)
                 {
-                    StartCoroutine(PickUp());
-                    SoundManager.instance.PlayClip(up);
+                    StartCoroutine(PickUp());                   
                 }
                 dogAnim.SetBool("AttackReady_b", true);
                    

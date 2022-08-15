@@ -11355,7 +11355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5449982771551959056}
-  - component: {fileID: 5449982771551959071}
+  - component: {fileID: 5449982771551959072}
   m_Layer: 0
   m_Name: Cutscene
   m_TagString: Untagged
@@ -11363,7 +11363,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5449982771551959071
+--- !u!114 &5449982771551959072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11372,7 +11372,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5449982771551959070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5217a662c82d2c3489c50cb7cf11d97c, type: 3}
+  m_Script: {fileID: 11500000, guid: de531aac233692d479fe9ad9b2958f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   entranceDoor: {fileID: 145435030}
@@ -11815,7 +11815,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get the Roomba out of the room.
+  m_text: Make the Roomba clean all the stains before guiding it out of the door.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
