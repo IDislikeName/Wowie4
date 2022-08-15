@@ -12,6 +12,7 @@ public class ComicSequence : MonoBehaviour
     public float camFirstSize;
 
     int stage = -1;
+    float delayTime = 1;
     bool canLoad = false;
     Camera cam;
 
@@ -28,13 +29,19 @@ public class ComicSequence : MonoBehaviour
             stage = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (canLoad && Input.GetKeyDown(KeyCode.Space))
         {
             if (stage >= LPositions.Count) { } //SceneManager.LoadScene("");
             canLoad = false;
             StartCoroutine(LoadComic());
             StartCoroutine(SetCamera());
 
+        }
+
+        IEnumerator StartDelay()
+        {
+            yield return new WaitForSeconds(1);
+            canLoad = true;
         }
 
         IEnumerator LoadComic()
@@ -49,7 +56,7 @@ public class ComicSequence : MonoBehaviour
                 yield return new WaitForSeconds(0);
             }
             stage += 1;
-            canLoad = true;
+            StartCoroutine(StartDelay());
         }
 
         IEnumerator SetCamera()
@@ -73,6 +80,8 @@ public class ComicSequence : MonoBehaviour
                 timeCount += Time.deltaTime;
                 yield return new WaitForSeconds(0);
             }
+
+            if(stage ==0)canLoad = true;
         }
 
     }
