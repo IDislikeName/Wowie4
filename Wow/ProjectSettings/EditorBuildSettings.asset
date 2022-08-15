@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Living Room.unity
     guid: 560e333d81714714bac293436fabedcc
   - enabled: 1
-    path: Assets/Scenes/CreditScene.unity
-    guid: 15d564b216cbee24f95a52ad03a4e7ac
+    path: Assets/Scenes/FinalScene.unity
+    guid: 7d9acc28e7e3bb546987b45e91b48604
   m_configObjects: {}
