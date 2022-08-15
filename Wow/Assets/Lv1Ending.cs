@@ -29,7 +29,7 @@ public class Lv1Ending : MonoBehaviour
         }
         if (other.CompareTag("Player") && started)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
     }
     IEnumerator Cutscene()
