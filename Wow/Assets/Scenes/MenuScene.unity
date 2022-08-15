@@ -3384,6 +3384,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3809833315214407314, guid: a1739938b43bbae43be9e210a5ae290e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f1d4f4f5820e0ab4b8a38a591a81b2a3, type: 3}
     - target: {fileID: 3809833315214407315, guid: a1739938b43bbae43be9e210a5ae290e, type: 3}
       propertyPath: m_Name
       value: SoundManager
@@ -3945,7 +3949,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7765727, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
