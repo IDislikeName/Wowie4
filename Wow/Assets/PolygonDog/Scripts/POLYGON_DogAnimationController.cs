@@ -10,6 +10,7 @@
  */
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class POLYGON_DogAnimationController : MonoBehaviour
 {
     public enum DogTypeList
@@ -106,8 +107,11 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     public GameObject pickUp;
     public GameObject pickUpObj;
     public bool pickingUp;
+    public bool jumpingScene;
     public Transform head;
     public bool Gamestarted = false;
+    public bool isTouchingSceneBowl = false;
+    public int SceneNum;
     void Start() // On start store dogKeyCodes
     {
         characterController = GetComponent<CharacterController>();
@@ -244,6 +248,19 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         pickingUp = false;
         pickUp.SetActive(false);
     }
+    IEnumerator jumpScene(){
+        jumpingScene = true;
+        StartCoroutine(DogActions(5));
+        yield return new WaitForSeconds(2f);
+        pickUp.SetActive(true);
+        SceneManager.LoadScene(SceneNum);
+        yield return new WaitForSeconds(0.2f);
+        jumpingScene = false;
+        pickUp.SetActive(false);
+    }
+    private void OnTriggerEnter(){
+        isTouchingSceneBowl = true;
+    }
    void Update()
     {
         bool attackMode = Input.GetKeyDown(dogKeyCodes[0]); // Get the current keycodes assigned by user
@@ -275,7 +292,14 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         bool a13Pressed = Input.GetKey(dogKeyCodes[26]);
         if (attackMode)
         {
-            dogAnim.SetBool("AttackReady_b", true);
+            if(!isTouchingSceneBowl){
+                dogAnim.SetBool("AttackReady_b", true);
+            }
+            if(isTouchingSceneBowl){
+                    if(!jumpingScene)
+                    StartCoroutine(jumpScene());
+            }
+            
             if (pickUpObj == null)
             {
                 if(!pickingUp)

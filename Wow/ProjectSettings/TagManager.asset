@@ -9,6 +9,11 @@ TagManager:
   - Small
   - Big
   - Roomba
+  - Scene1
+  - Scene2
+  - Scene3
+  - Scene4
+  - Scene5
   layers:
   - Default
   - TransparentFX
