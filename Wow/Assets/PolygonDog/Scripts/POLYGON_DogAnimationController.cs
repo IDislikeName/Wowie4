@@ -107,6 +107,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     public GameObject pickUpObj;
     public bool pickingUp;
     public Transform head;
+    public bool Gamestarted = false;
     void Start() // On start store dogKeyCodes
     {
         characterController = GetComponent<CharacterController>();

@@ -11,6 +11,7 @@ public class Lv1Cutscene : MonoBehaviour
     public bool doorRotating;
     public bool started = false;
     public bool dogMoving = false;
+    public GameObject Textbox;
     // Start is called before the first frame update
     void Start()
     {

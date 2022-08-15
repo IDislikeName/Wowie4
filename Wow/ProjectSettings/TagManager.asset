@@ -8,6 +8,7 @@ TagManager:
   - Trash
   - Small
   - Big
+  - Roomba
   layers:
   - Default
   - TransparentFX
