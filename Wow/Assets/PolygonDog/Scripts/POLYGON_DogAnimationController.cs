@@ -109,15 +109,12 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     public bool pickingUp;
     public bool jumpingScene;
     public Transform head;
-<<<<<<< Updated upstream
     public bool Gamestarted = false;
     public bool isTouchingSceneBowl = false;
     public int SceneNum;
-=======
     public AudioClip up;
     public AudioClip down;
     public bool gameStarted = false;
->>>>>>> Stashed changes
     void Start() // On start store dogKeyCodes
     {
         characterController = GetComponent<CharacterController>();
