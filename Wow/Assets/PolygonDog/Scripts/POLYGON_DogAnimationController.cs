@@ -322,14 +322,20 @@ public class POLYGON_DogAnimationController : MonoBehaviour
             w_movement -= Time.deltaTime * decelleration;
 
         }
-        if (!walkPressed && w_movement > 0.0f) // If no longer walking
+        if (!walkPressed && w_movement > 0.0f && !leftTurn) // If no longer walking
         {
             w_movement -= Time.deltaTime * decelleration;
         }
         if (leftTurn)
         {
+                //dogAnim.SetFloat("Movement_f", 0.49f);
+                //w_movement += Time.deltaTime * acceleration;
+                //transform.Rotate(Vector3.up * Time.deltaTime * -95, Space.Self);
+                //transform.Rotate(Vector3.up * 0 * -90, Space.Self);
+                //dogAnim.SetBool("Walking", true);
             if (w_movement > 0.25 && w_movement < 0.75)
             {
+                //w_movement += Time.deltaTime * acceleration;
                 transform.Rotate(Vector3.up * Time.deltaTime * -95, Space.Self);
             }
             if (w_movement > 0.75)
@@ -338,11 +344,19 @@ public class POLYGON_DogAnimationController : MonoBehaviour
             }
             if (w_movement < 0.25)
             {
-                dogAnim.SetInteger("TurnAngle_int", -90);
+                //w_movement += Time.deltaTime * acceleration;
+                transform.Rotate(Vector3.up * Time.deltaTime * -95, Space.Self);
+
+                //dogAnim.SetInteger("TurnAngle_int", -90);
             }
         }
+        /*if (!leftTurn)
+        {
+            dogAnim.SetBool("Walking", false);
+        }*/
         else if (rightTurn)
         {
+            dogAnim.SetFloat("Movement_f", 0.49f);
             if (w_movement > 0.25 && w_movement < 0.75)
             {
                 transform.Rotate(-Vector3.down * Time.deltaTime * 95, Space.Self);
@@ -353,7 +367,8 @@ public class POLYGON_DogAnimationController : MonoBehaviour
             }
             if (w_movement < 0.25)
             {
-                dogAnim.SetInteger("TurnAngle_int", 90);
+                transform.Rotate(-Vector3.down * Time.deltaTime * 95, Space.Self);
+                //dogAnim.SetInteger("TurnAngle_int", 90);
             }
         }
         else if (turnBack)
