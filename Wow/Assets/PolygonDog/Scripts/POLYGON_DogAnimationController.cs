@@ -253,16 +253,14 @@ public class POLYGON_DogAnimationController : MonoBehaviour
     IEnumerator jumpScene(){
         jumpingScene = true;
         StartCoroutine(DogActions(5));
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         pickUp.SetActive(true);
         SceneManager.LoadScene(SceneNum);
         yield return new WaitForSeconds(0.2f);
         jumpingScene = false;
         pickUp.SetActive(false);
     }
-    private void OnTriggerEnter(){
-        isTouchingSceneBowl = true;
-    }
+
    void Update()
     {
         bool attackMode = Input.GetKeyDown(dogKeyCodes[0]); // Get the current keycodes assigned by user
