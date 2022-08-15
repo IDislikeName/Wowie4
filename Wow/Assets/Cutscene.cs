@@ -12,15 +12,20 @@ public class Cutscene : MonoBehaviour
     public GameObject dog;
     public bool dogMoving = false;
     public GameObject doorBox;
+    public bool started = false;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Stuff());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!started)
+        {
+            StartCoroutine(Stuff());
+        }
         if (doorOpening)
         {
             entranceDoor.transform.Rotate(0, -30 * Time.deltaTime, 0);
@@ -33,7 +38,7 @@ public class Cutscene : MonoBehaviour
         if (doorClosing)
         {
             entranceDoor.transform.Rotate(0, 30 * Time.deltaTime, 0);
-            if (Mathf.Abs(entranceDoor.transform.rotation.eulerAngles.y) <= 0.8f)
+            if (Mathf.Abs(entranceDoor.transform.rotation.eulerAngles.y-0) <= 0.8f)
             {
                 entranceDoor.transform.eulerAngles = new Vector3(entranceDoor.transform.rotation.eulerAngles.x, 0, entranceDoor.transform.rotation.eulerAngles.z);
                 doorClosing = false;
@@ -46,6 +51,7 @@ public class Cutscene : MonoBehaviour
     }
     IEnumerator Stuff()
     {
+        started = true;
         doorOpening = true;
         yield return new WaitUntil(() => !doorOpening);
         dogMoving = true;
