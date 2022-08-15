@@ -251,6 +251,7 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         pickUp.SetActive(false);
     }
     IEnumerator jumpScene(){
+        Debug.Log("jumpscene");
         jumpingScene = true;
         StartCoroutine(DogActions(5));
         yield return new WaitForSeconds(4f);
@@ -259,6 +260,17 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         jumpingScene = false;
         pickUp.SetActive(false);
+    }
+    IEnumerator waitForSeconds(){
+        yield return new WaitForSeconds(0.2f);
+    }
+
+    public void OnTriggerEnter(Collider other){
+        if(other.CompareTag("Scene1") || other.CompareTag("Scene2") || other.CompareTag("Scene3") || other.CompareTag("Scene4") ||other.CompareTag("Scene5")){
+                     isTouchingSceneBowl = true;
+                     Debug.Log(isTouchingSceneBowl);
+        }
+
     }
 
    void Update()
@@ -292,9 +304,10 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         bool a13Pressed = Input.GetKey(dogKeyCodes[26]);       
         if (attackMode&&gameStarted)
         {
-            if(!isTouchingSceneBowl){
+            waitForSeconds();
+            /*if(!isTouchingSceneBowl){
                 dogAnim.SetBool("AttackReady_b", true);
-            }
+            }*/
             if(isTouchingSceneBowl){
                     if(!jumpingScene)
                     StartCoroutine(jumpScene());
@@ -302,11 +315,14 @@ public class POLYGON_DogAnimationController : MonoBehaviour
             
             if (pickUpObj == null)
             {
+                Debug.Log("pickup");
+
                 if (!pickingUp)
                 {
                     StartCoroutine(PickUp());
                     SoundManager.instance.PlayClip(up);
                 }
+                dogAnim.SetBool("AttackReady_b", true);
                    
             }
             else

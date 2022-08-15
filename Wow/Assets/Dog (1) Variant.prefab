@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_Name
-      value: Dog (1)
+      value: Dog (1) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 100132, guid: c09f8524a6a9dee4a9fb53005c279541, type: 3}
       propertyPath: m_TagString
@@ -2072,6 +2072,19 @@ CharacterController:
   m_SkinWidth: 0.1
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.58, z: 0.06}
+--- !u!65 &7843764710570124322
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3517976496324000181}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1573915116
 MonoBehaviour:
   m_ObjectHideFlags: 0
