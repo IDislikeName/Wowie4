@@ -265,14 +265,16 @@ public class POLYGON_DogAnimationController : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
     }
 
-    public void OnTriggerEnter(Collider other){
+    public void OnTriggerStay(Collider other){
         if(other.CompareTag("Scene1") || other.CompareTag("Scene2") || other.CompareTag("Scene3") || other.CompareTag("Scene4") ||other.CompareTag("Scene5")){
                      isTouchingSceneBowl = true;
                      Debug.Log(isTouchingSceneBowl);
         }
-
+        else{
+            isTouchingSceneBowl = false;
+            Debug.Log(isTouchingSceneBowl);
+        }
     }
-
    void Update()
     {
         bool attackMode = Input.GetKeyDown(dogKeyCodes[0]); // Get the current keycodes assigned by user
