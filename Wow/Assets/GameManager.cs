@@ -44,11 +44,6 @@ public class GameManager : MonoBehaviour
         if (doorOpening)
         {
             exit.transform.Rotate(0, -30 * Time.deltaTime, 0);
-            if (Mathf.Abs(exit.transform.rotation.eulerAngles.y - 270) <= 0.8f)
-            {
-                exit.transform.eulerAngles = new Vector3(exit.transform.rotation.eulerAngles.x, 270, exit.transform.rotation.eulerAngles.z);
-                doorOpening = false;
-            }
         }
     }
     public bool CheckStains()
@@ -65,8 +60,15 @@ public class GameManager : MonoBehaviour
     }
     public void OpenDoor()
     {
+        
         doorOpened = true;
-        doorOpening = true;
         exitCol.tag = "Untagged";
+        StartCoroutine(DoorStuff());
+    }
+    IEnumerator DoorStuff()
+    {
+        doorOpening = true;
+        yield return new WaitForSeconds(3f);
+        doorOpening = false;
     }
 }
