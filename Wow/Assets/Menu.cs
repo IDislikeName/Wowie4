@@ -16,7 +16,7 @@ public class Menu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Toggle();
+            M();
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
