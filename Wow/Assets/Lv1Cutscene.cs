@@ -12,8 +12,8 @@ public class Lv1Cutscene : MonoBehaviour
     public bool started = false;
     public bool dogMoving = false;
     public GameObject textbox1;
-    public GameObject textbox2;
     public Vector3 camPos;
+    public GameObject objective;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,18 +51,26 @@ public class Lv1Cutscene : MonoBehaviour
         doorRotating = true;
         yield return new WaitUntil(() => !doorRotating);
         dogMoving = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.3f);
         dogMoving = false;
-        cam.transform.position = camPos;
+        
         cam.Follow = dog.transform;
         cam.LookAt = dog.transform;
+        cam.transform.position = camPos;
         textbox1.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        textbox1.GetComponent<TextBox>().Act(0);
+        yield return new WaitForSeconds(3f);
+        textbox1.GetComponent<TextBox>().Dis(0);
+        yield return new WaitForSeconds(1f);
+        textbox1.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        textbox1.GetComponent<TextBox>().Act(1);
         yield return new WaitForSeconds(2f);
-        textbox1.SetActive(false);
+        textbox1.GetComponent<TextBox>().Dis(1);
         yield return new WaitForSeconds(2f);
-        textbox2.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        textbox2.SetActive(false);
-        yield return new WaitForSeconds(2f);
+        objective.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        objective.SetActive(false);
     }
 }
